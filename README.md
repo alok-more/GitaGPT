@@ -17,7 +17,6 @@
 
 ## Demo
 
-![GitaGPT Demo] 
 1. ![GitaGPT Demo](gita_demo1.PNG)
 2. ![GitaGPT Demo](gita_demo2.PNG)
 
