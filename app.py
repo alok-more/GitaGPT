@@ -117,9 +117,28 @@ with st.sidebar:
         if st.button(q, key=f"quick_{q}", use_container_width=True):
             st.session_state.pending_question = q
             st.rerun()
-    
+
     st.divider()
-    
+
+    # -------------------------
+    # 📝 Chat History Section
+    # -------------------------
+    st.subheader("📝 Chat History")
+
+    # Only user messages
+    user_history = [m["content"] for m in st.session_state.messages if m["role"] == "user"]
+
+    if user_history:
+        for i, msg in enumerate(reversed(user_history)):  # latest at top
+            preview = msg[:40] + ("..." if len(msg) > 40 else "")
+            if st.button(preview, key=f"history_{i}", use_container_width=True):
+                st.session_state.pending_question = msg
+                st.rerun()
+    else:
+        st.caption("No history yet.")
+
+    st.divider()
+
     if st.button("🔄 Clear Chat", use_container_width=True, type="primary"):
         st.session_state.messages = []
         st.rerun()
