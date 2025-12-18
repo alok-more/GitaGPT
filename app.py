@@ -42,7 +42,7 @@ class GeetaGPT:
             if lang == 'mr' else
             """You are GitaGPT, a wise and compassionate AI assistant knowledgeable in the Bhagavad Gita.
             Explain teachings in simple, friendly language applicable in daily life.
-            If quoting shlokas, always provide them in **Sanskrit**, and explain their meaning.
+            If quoting shlokas, always provide them in **Only in Sanskrit**, and explain their meaning.
             Include practical examples, analogies, or stories to make concepts easy to understand.
             Responses should be thoughtful, helpful, and conversational, not just literal translations. Do not try to verify or correct the shlokas—just provide clear and concise explanations."""
         )
@@ -177,7 +177,7 @@ if user_input:
     
     st.session_state.messages.append({"role": "user", "content": user_input})
     
-    with st.spinner("🕉️ Contemplating the wisdom of the Gita..."):
+    with st.spinner("🕉️ GitaGPT is thinking..."):
         result = st.session_state.geeta_gpt.get_ai_response(
             user_input,
             st.session_state.messages[:-1]
